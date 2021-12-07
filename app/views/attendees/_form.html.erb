@@ -1,0 +1,57 @@
+<% was_validated = attendee.errors.any? %>
+
+<%= form_with(model: attendee, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for event_id start -->
+  <div class="form-group">
+    <% event_class = "form-control" %>
+    <% event_was_invalid = attendee.errors.include?(:event) %>
+
+    <% if was_validated %>
+      <% if event_was_invalid %>
+        <% event_class << " is-invalid" %>
+      <% else %>
+        <% event_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :event_id %>
+    <!-- Input for event_id start -->
+    <%= f.number_field :event_id, class: event_class, placeholder: "Enter event" %>
+    <!-- Input for event_id end -->
+    <% if event_was_invalid %>
+      <% attendee.errors.full_messages_for(:event).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for event_id end -->
+  <!-- Label and input for student_id start -->
+  <div class="form-group">
+    <% student_class = "form-control" %>
+    <% student_was_invalid = attendee.errors.include?(:student) %>
+
+    <% if was_validated %>
+      <% if student_was_invalid %>
+        <% student_class << " is-invalid" %>
+      <% else %>
+        <% student_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :student_id %>
+    <!-- Input for student_id start -->
+    <%= f.number_field :student_id, class: student_class, placeholder: "Enter student" %>
+    <!-- Input for student_id end -->
+    <% if student_was_invalid %>
+      <% attendee.errors.full_messages_for(:student).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for student_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
