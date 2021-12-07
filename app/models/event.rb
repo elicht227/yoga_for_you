@@ -1,6 +1,10 @@
 class Event < ApplicationRecord
   # Direct associations
 
+  has_many   :student_attendees,
+             :class_name => "Attendee",
+             :dependent => :nullify
+
   belongs_to :park,
              :counter_cache => true
 
