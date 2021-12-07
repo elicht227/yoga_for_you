@@ -4,28 +4,23 @@ class TeachersController < ApplicationController
 
   before_action :set_teacher, only: %i[show edit update destroy]
 
-  # GET /teachers
   def index
     @q = Teacher.ransack(params[:q])
     @teachers = @q.result(distinct: true).includes(:user, :teaching_events,
                                                    :reviews).page(params[:page]).per(10)
   end
 
-  # GET /teachers/1
   def show
     @review = Review.new
     @event = Event.new
   end
 
-  # GET /teachers/new
   def new
     @teacher = Teacher.new
   end
 
-  # GET /teachers/1/edit
   def edit; end
 
-  # POST /teachers
   def create
     @teacher = Teacher.new(teacher_params)
 
@@ -36,7 +31,6 @@ class TeachersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /teachers/1
   def update
     if @teacher.update(teacher_params)
       redirect_to @teacher, notice: "Teacher was successfully updated."
@@ -45,7 +39,6 @@ class TeachersController < ApplicationController
     end
   end
 
-  # DELETE /teachers/1
   def destroy
     @teacher.destroy
     redirect_to teachers_url, notice: "Teacher was successfully destroyed."
@@ -61,12 +54,10 @@ class TeachersController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_teacher
     @teacher = Teacher.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def teacher_params
     params.require(:teacher).permit(:user_id)
   end
