@@ -6,6 +6,9 @@ class StudentResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :attendee_ids,
+             resource: AttendeeResource
+
   has_many   :written_reviews,
              resource: ReviewResource
 
