@@ -1,6 +1,9 @@
 class Review < ApplicationRecord
   # Direct associations
 
+  belongs_to :teacher,
+             :counter_cache => true
+
   # Indirect associations
 
   # Validations

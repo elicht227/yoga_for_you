@@ -1,6 +1,9 @@
 class Teacher < ApplicationRecord
   # Direct associations
 
+  has_many   :reviews,
+             :dependent => :destroy
+
   has_many   :teaching_events,
              :class_name => "Event",
              :dependent => :nullify
