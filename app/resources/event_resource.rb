@@ -14,6 +14,8 @@ class EventResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :category
+
   # Indirect associations
 
 end
