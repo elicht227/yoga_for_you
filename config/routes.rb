@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   resources :parks
   resources :categories
   devise_for :users
