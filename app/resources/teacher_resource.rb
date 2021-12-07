@@ -6,6 +6,9 @@ class TeacherResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :teaching_events,
+             resource: EventResource
+
   belongs_to :user
 
   # Indirect associations

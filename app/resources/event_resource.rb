@@ -14,6 +14,8 @@ class EventResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :teacher
+
   has_many   :student_attendees,
              resource: AttendeeResource
 
