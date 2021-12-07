@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_one    :teacherid,
+             :class_name => "Teacher",
+             :dependent => :destroy
+
   has_one    :studentid,
              :class_name => "Student",
              :dependent => :destroy
