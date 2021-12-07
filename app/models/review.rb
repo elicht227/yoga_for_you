@@ -1,6 +1,9 @@
 class Review < ApplicationRecord
   # Direct associations
 
+  belongs_to :student,
+             :counter_cache => :written_reviews_count
+
   belongs_to :teacher,
              :counter_cache => true
 
