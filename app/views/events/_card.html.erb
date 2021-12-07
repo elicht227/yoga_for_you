@@ -12,7 +12,11 @@
 
       <dt>Teacher</dt>
       <!-- Display teacher_id start -->
-      <dd><%= event.teacher_id %></dd>
+      <dd>
+        <% if @event.teacher.present? %>
+          <%= link_to event.teacher, event.teacher %>
+        <% end %>
+      </dd>
       <!-- Display teacher_id end -->
 
       <dt>Date</dt>
@@ -37,12 +41,20 @@
 
       <dt>Park</dt>
       <!-- Display park_id start -->
-      <dd><%= event.park_id %></dd>
+      <dd>
+        <% if @event.park.present? %>
+          <%= link_to event.park, event.park %>
+        <% end %>
+      </dd>
       <!-- Display park_id end -->
 
       <dt>Category</dt>
       <!-- Display category_id start -->
-      <dd><%= event.category_id %></dd>
+      <dd>
+        <% if @event.category.present? %>
+          <%= link_to event.category, event.category %>
+        <% end %>
+      </dd>
       <!-- Display category_id end -->
 
       <dt>Event description</dt>
