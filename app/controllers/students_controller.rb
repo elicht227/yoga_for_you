@@ -8,6 +8,8 @@ class StudentsController < ApplicationController
 
   # GET /students/1
   def show
+    @attendee = Attendee.new
+    @review = Review.new
   end
 
   # GET /students/new

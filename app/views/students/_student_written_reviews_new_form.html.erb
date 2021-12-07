@@ -1,0 +1,41 @@
+<!-- Form review start -->
+<%= form_with(model: @review, local: true) do |f| %>
+<!-- Form review end -->
+
+  <!-- Label and input for star_rating start -->
+  <div class="form-group">
+    <%= f.label :star_rating %>
+
+    <!-- Input for star_rating start -->
+    <%= f.text_field :star_rating, class: "form-control" %>
+    <!-- Input for star_rating end -->
+  </div>
+  <!-- Label and input for star_rating end -->
+
+  <!-- Label and input for review_text start -->
+  <div class="form-group">
+    <%= f.label :review_text %>
+    <!-- Input for review_text start -->
+    <%= f.text_area :review_text, rows: "3", class: "form-control" %>
+    <!-- Input for review_text end -->
+  </div>
+  <!-- Label and input for review_text end -->
+
+  <!-- Label and input for teacher_id start -->
+  <div class="form-group">
+    <%= f.label :teacher_id %>
+
+    <!-- Input for teacher_id start -->
+    <%= f.text_field :teacher_id, class: "form-control" %>
+    <!-- Input for teacher_id end -->
+  </div>
+  <!-- Label and input for teacher_id end -->
+
+  <!-- Label and input for student_id start -->
+  <!-- Input for student_id start -->
+  <%= f.hidden_field :student_id, value: @student.id %>
+  <!-- Input for student_id end -->
+  <!-- Label and input for student_id end -->
+
+  <%= f.submit "Create review", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
