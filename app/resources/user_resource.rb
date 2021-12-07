@@ -9,6 +9,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_one    :teacherid,
+             resource: TeacherResource
+
   has_one    :studentid,
              resource: StudentResource
 
