@@ -1,5 +1,7 @@
 ActiveAdmin.register Event do
 
+ permit_params :event_name, :teacher_id, :date, :start_time, :duration, :end_time, :park_id, :category_id, :event_description
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
