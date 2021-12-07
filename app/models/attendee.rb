@@ -1,6 +1,9 @@
 class Attendee < ApplicationRecord
   # Direct associations
 
+  belongs_to :student,
+             :counter_cache => :attendee_ids_count
+
   belongs_to :event,
              :required => false,
              :counter_cache => :student_attendees_count

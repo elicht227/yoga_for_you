@@ -4,6 +4,8 @@ RSpec.describe Student, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:attendee_ids) }
+
     it { should have_many(:written_reviews) }
 
     it { should belong_to(:user) }

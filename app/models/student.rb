@@ -1,6 +1,10 @@
 class Student < ApplicationRecord
   # Direct associations
 
+  has_many   :attendee_ids,
+             :class_name => "Attendee",
+             :dependent => :destroy
+
   has_many   :written_reviews,
              :class_name => "Review"
 
