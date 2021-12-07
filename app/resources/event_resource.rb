@@ -27,5 +27,4 @@ class EventResource < ApplicationResource
 
   many_to_many :attending_students,
                resource: StudentResource
-
 end

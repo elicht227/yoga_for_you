@@ -1,9 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Event, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should belong_to(:teacher) }
 
     it { should have_many(:student_attendees) }
@@ -11,16 +9,12 @@ RSpec.describe Event, type: :model do
     it { should belong_to(:park) }
 
     it { should belong_to(:category) }
+  end
 
-    end
-
-    describe "InDirect Associations" do
-
+  describe "InDirect Associations" do
     it { should have_many(:attending_students) }
+  end
 
-    end
-
-    describe "Validations" do
-
-    end
+  describe "Validations" do
+  end
 end

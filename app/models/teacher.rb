@@ -2,11 +2,11 @@ class Teacher < ApplicationRecord
   # Direct associations
 
   has_many   :reviews,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :teaching_events,
-             :class_name => "Event",
-             :dependent => :nullify
+             class_name: "Event",
+             dependent: :nullify
 
   belongs_to :user
 
@@ -19,5 +19,4 @@ class Teacher < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

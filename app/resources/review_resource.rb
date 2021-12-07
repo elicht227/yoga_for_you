@@ -14,5 +14,4 @@ class ReviewResource < ApplicationResource
   belongs_to :teacher
 
   # Indirect associations
-
 end

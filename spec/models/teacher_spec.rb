@@ -1,22 +1,17 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Teacher, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should have_many(:reviews) }
 
     it { should have_many(:teaching_events) }
 
     it { should belong_to(:user) }
+  end
 
-    end
+  describe "InDirect Associations" do
+  end
 
-    describe "InDirect Associations" do
-
-    end
-
-    describe "Validations" do
-
-    end
+  describe "Validations" do
+  end
 end

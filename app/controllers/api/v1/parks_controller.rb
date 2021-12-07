@@ -13,7 +13,7 @@ class Api::V1::ParksController < Api::V1::GraphitiController
     park = ParkResource.build(params)
 
     if park.save
-      render jsonapi: park, status: 201
+      render jsonapi: park, status: :created
     else
       render jsonapi_errors: park
     end
@@ -33,7 +33,7 @@ class Api::V1::ParksController < Api::V1::GraphitiController
     park = ParkResource.find(params)
 
     if park.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: park
     end

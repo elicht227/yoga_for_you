@@ -12,5 +12,4 @@ class AttendeeResource < ApplicationResource
   belongs_to :event
 
   # Indirect associations
-
 end

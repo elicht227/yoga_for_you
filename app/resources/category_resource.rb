@@ -7,8 +7,7 @@ class CategoryResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :events
+  has_many :events
 
   # Indirect associations
-
 end
