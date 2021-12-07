@@ -7,6 +7,8 @@ class ParkResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :events
+
   # Indirect associations
 
 end
