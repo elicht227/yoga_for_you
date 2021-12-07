@@ -14,6 +14,9 @@ class EventResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :student_attendees,
+             resource: AttendeeResource
+
   belongs_to :park
 
   belongs_to :category
