@@ -1,5 +1,7 @@
 ActiveAdmin.register Park do
 
+ permit_params :park_name, :park_address
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
