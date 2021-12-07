@@ -16,7 +16,7 @@
 
     <%= f.label :category_name %>
     <!-- Input for category_name start -->
-    <%= f.number_field :category_name, class: category_name_class, placeholder: "Enter category name" %>
+    <%= f.select :category_name, options_for_select(Category.category_names.keys), {}, class: "form-control" %>
     <!-- Input for category_name end -->
     <% if category_name_was_invalid %>
       <% category.errors.full_messages_for(:category_name).each do |message| %>
