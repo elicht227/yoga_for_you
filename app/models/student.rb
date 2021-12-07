@@ -12,6 +12,10 @@ class Student < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :events_attending,
+             :through => :attendee_ids,
+             :source => :event
+
   # Validations
 
   # Scopes

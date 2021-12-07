@@ -16,6 +16,8 @@ RSpec.describe Event, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:attending_students) }
+
     end
 
     describe "Validations" do
