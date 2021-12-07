@@ -63,7 +63,7 @@
     <%= f.label :park_id %>
 
     <!-- Input for park_id start -->
-    <%= f.text_field :park_id, class: "form-control" %>
+    <%= f.collection_select :park_id, Park.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for park_id end -->
   </div>
   <!-- Label and input for park_id end -->

@@ -172,7 +172,7 @@
 
     <%= f.label :park_id %>
     <!-- Input for park_id start -->
-    <%= f.number_field :park_id, class: park_class, placeholder: "Enter park" %>
+    <%= f.collection_select :park_id, Park.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for park_id end -->
     <% if park_was_invalid %>
       <% event.errors.full_messages_for(:park).each do |message| %>
