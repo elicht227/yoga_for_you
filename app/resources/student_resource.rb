@@ -6,6 +6,9 @@ class StudentResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :written_reviews,
+             resource: ReviewResource
+
   belongs_to :user
 
   # Indirect associations

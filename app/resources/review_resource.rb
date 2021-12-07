@@ -9,6 +9,8 @@ class ReviewResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :student
+
   belongs_to :teacher
 
   # Indirect associations
