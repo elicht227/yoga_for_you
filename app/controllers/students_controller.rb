@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  before_action :current_user_must_be_student_user, only: [:edit, :update, :destroy] 
+
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   # GET /students
@@ -48,6 +50,14 @@ class StudentsController < ApplicationController
   end
 
   private
+
+  def current_user_must_be_student_user
+    set_student
+    unless current_user == @student.user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_student
       @student = Student.find(params[:id])

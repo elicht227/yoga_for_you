@@ -19,16 +19,20 @@
 
       <!-- Edit link student start -->
       <div class="col">
-        <%= link_to edit_student_url(student), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @student.user %>
+          <%= link_to edit_student_url(student), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link student end -->
 
       <!-- Delete link student start -->
       <div class="col">
-        <%= link_to student, method: :delete, data: { confirm: "Do you really want to delete this student?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @student.user %>
+          <%= link_to student, method: :delete, data: { confirm: "Do you really want to delete this student?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link student end -->
