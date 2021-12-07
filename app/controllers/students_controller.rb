@@ -5,7 +5,8 @@ class StudentsController < ApplicationController
 
   # GET /students
   def index
-    @students = Student.page(params[:page]).per(10)
+    @q = Student.ransack(params[:q])
+    @students = @q.result(:distinct => true).includes(:user, :written_reviews, :attendee_ids, :events_attending).page(params[:page]).per(10)
   end
 
   # GET /students/1

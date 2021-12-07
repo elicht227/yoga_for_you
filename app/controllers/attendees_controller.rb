@@ -3,7 +3,8 @@ class AttendeesController < ApplicationController
 
   # GET /attendees
   def index
-    @attendees = Attendee.page(params[:page]).per(10)
+    @q = Attendee.ransack(params[:q])
+    @attendees = @q.result(:distinct => true).includes(:event, :student).page(params[:page]).per(10)
   end
 
   # GET /attendees/1

@@ -3,7 +3,8 @@ class ParksController < ApplicationController
 
   # GET /parks
   def index
-    @parks = Park.page(params[:page]).per(10)
+    @q = Park.ransack(params[:q])
+    @parks = @q.result(:distinct => true).includes(:events).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@parks.where.not(:park_address_latitude => nil)) do |park, marker|
       marker.lat park.park_address_latitude
       marker.lng park.park_address_longitude

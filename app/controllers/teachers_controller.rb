@@ -5,7 +5,8 @@ class TeachersController < ApplicationController
 
   # GET /teachers
   def index
-    @teachers = Teacher.page(params[:page]).per(10)
+    @q = Teacher.ransack(params[:q])
+    @teachers = @q.result(:distinct => true).includes(:user, :teaching_events, :reviews).page(params[:page]).per(10)
   end
 
   # GET /teachers/1
