@@ -16,7 +16,7 @@
 
     <%= f.label :park_name %>
     <!-- Input for park_name start -->
-    <%= f.number_field :park_name, class: park_name_class, placeholder: "Enter park name" %>
+    <%= f.select :park_name, options_for_select(Park.park_names.keys), {}, class: "form-control" %>
     <!-- Input for park_name end -->
     <% if park_name_was_invalid %>
       <% park.errors.full_messages_for(:park_name).each do |message| %>
