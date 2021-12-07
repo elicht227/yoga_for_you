@@ -4,6 +4,11 @@ class ParksController < ApplicationController
   # GET /parks
   def index
     @parks = Park.all
+    @location_hash = Gmaps4rails.build_markers(@parks.where.not(:park_address_latitude => nil)) do |park, marker|
+      marker.lat park.park_address_latitude
+      marker.lng park.park_address_longitude
+      marker.infowindow "<h5><a href='/parks/#{park.id}'>#{park.park_name}</a></h5><small>#{park.park_address_formatted_address}</small>"
+    end
   end
 
   # GET /parks/1

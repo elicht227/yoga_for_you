@@ -12,7 +12,11 @@
 
       <dt>Park address</dt>
       <!-- Display park_address start -->
-      <dd><%= park.park_address %></dd>
+      <dd>
+        <div>
+          <%= render partial: "parks/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display park_address end -->
 
     </dl>
