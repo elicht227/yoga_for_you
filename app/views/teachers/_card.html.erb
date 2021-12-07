@@ -6,13 +6,11 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @teacher.user.present? %>
           <%= link_to teacher.user, teacher.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
     </dl>
 
@@ -21,7 +19,6 @@
         <%= link_to_show_or_back teacher, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link teacher start -->
       <div class="col">
         <% if current_user == @teacher.user %>
           <%= link_to edit_teacher_url(teacher), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -29,9 +26,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link teacher end -->
 
-      <!-- Delete link teacher start -->
       <div class="col">
         <% if current_user == @teacher.user %>
           <%= link_to teacher, method: :delete, data: { confirm: "Do you really want to delete this teacher?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -39,7 +34,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link teacher end -->
     </div>
   </div>
 

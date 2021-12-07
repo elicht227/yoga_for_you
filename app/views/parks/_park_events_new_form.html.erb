@@ -1,91 +1,53 @@
-<!-- Form event start -->
 <%= form_with(model: @event, local: true) do |f| %>
-<!-- Form event end -->
 
-  <!-- Label and input for event_name start -->
   <div class="form-group">
     <%= f.label :event_name %>
 
-    <!-- Input for event_name start -->
     <%= f.text_field :event_name, class: "form-control" %>
-    <!-- Input for event_name end -->
   </div>
-  <!-- Label and input for event_name end -->
 
-  <!-- Label and input for teacher_id start -->
   <div class="form-group">
     <%= f.label :teacher_id %>
 
-    <!-- Input for teacher_id start -->
     <%= f.collection_select :teacher_id, Teacher.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for teacher_id end -->
   </div>
-  <!-- Label and input for teacher_id end -->
 
-  <!-- Label and input for date start -->
   <div class="form-group">
     <%= f.label :date %>
 
-    <!-- Input for date start -->
     <%= f.date_select :date, class: "form-control" %>
-    <!-- Input for date end -->
   </div>
-  <!-- Label and input for date end -->
 
-  <!-- Label and input for start_time start -->
   <div class="form-group">
     <%= f.label :start_time %>
 
-    <!-- Input for start_time start -->
     <%= f.date_select :start_time, class: "form-control" %>
-    <!-- Input for start_time end -->
   </div>
-  <!-- Label and input for start_time end -->
 
-  <!-- Label and input for duration start -->
   <div class="form-group">
     <%= f.label :duration %>
 
-    <!-- Input for duration start -->
     <%= f.text_field :duration, class: "form-control" %>
-    <!-- Input for duration end -->
   </div>
-  <!-- Label and input for duration end -->
 
-  <!-- Label and input for end_time start -->
   <div class="form-group">
     <%= f.label :end_time %>
 
-    <!-- Input for end_time start -->
     <%= f.date_select :end_time, class: "form-control" %>
-    <!-- Input for end_time end -->
   </div>
-  <!-- Label and input for end_time end -->
 
-  <!-- Label and input for park_id start -->
-  <!-- Input for park_id start -->
   <%= f.hidden_field :park_id, value: @park.id %>
-  <!-- Input for park_id end -->
-  <!-- Label and input for park_id end -->
 
-  <!-- Label and input for category_id start -->
   <div class="form-group">
     <%= f.label :category_id %>
 
-    <!-- Input for category_id start -->
     <%= f.collection_select :category_id, Category.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for category_id end -->
   </div>
-  <!-- Label and input for category_id end -->
 
-  <!-- Label and input for event_description start -->
   <div class="form-group">
     <%= f.label :event_description %>
-    <!-- Input for event_description start -->
     <%= f.text_area :event_description, rows: "3", class: "form-control" %>
-    <!-- Input for event_description end -->
   </div>
-  <!-- Label and input for event_description end -->
 
   <%= f.submit "Create event", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

@@ -1,7 +1,6 @@
 <% was_validated = category.errors.any? %>
 
 <%= form_with(model: category, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for category_name start -->
   <div class="form-group">
     <% category_name_class = "form-control" %>
     <% category_name_was_invalid = category.errors.include?(:category_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :category_name %>
-    <!-- Input for category_name start -->
     <%= f.select :category_name, options_for_select(Category.category_names.keys), {}, class: "form-control" %>
-    <!-- Input for category_name end -->
     <% if category_name_was_invalid %>
       <% category.errors.full_messages_for(:category_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for category_name end -->
-  <!-- Label and input for category_description start -->
   <div class="form-group">
     <% category_description_class = "form-control" %>
     <% category_description_was_invalid = category.errors.include?(:category_description) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :category_description %>
-    <!-- Input for category_description start -->
     <%= f.text_area :category_description, class: category_description_class, placeholder: "Enter category description" %>
-    <!-- Input for category_description end -->
     <% if category_description_was_invalid %>
       <% category.errors.full_messages_for(:category_description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for category_description end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

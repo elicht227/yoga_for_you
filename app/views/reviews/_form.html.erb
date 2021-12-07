@@ -1,7 +1,6 @@
 <% was_validated = review.errors.any? %>
 
 <%= form_with(model: review, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for star_rating start -->
   <div class="form-group">
     <% star_rating_class = "form-control" %>
     <% star_rating_was_invalid = review.errors.include?(:star_rating) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :star_rating %>
-    <!-- Input for star_rating start -->
     <%= f.text_field :star_rating, class: star_rating_class, placeholder: "Enter star rating" %>
-    <!-- Input for star_rating end -->
     <% if star_rating_was_invalid %>
       <% review.errors.full_messages_for(:star_rating).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for star_rating end -->
-  <!-- Label and input for review_text start -->
   <div class="form-group">
     <% review_text_class = "form-control" %>
     <% review_text_was_invalid = review.errors.include?(:review_text) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :review_text %>
-    <!-- Input for review_text start -->
     <%= f.text_area :review_text, class: review_text_class, placeholder: "Enter review text" %>
-    <!-- Input for review_text end -->
     <% if review_text_was_invalid %>
       <% review.errors.full_messages_for(:review_text).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for review_text end -->
-  <!-- Label and input for teacher_id start -->
   <div class="form-group">
     <% teacher_class = "form-control" %>
     <% teacher_was_invalid = review.errors.include?(:teacher) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :teacher_id %>
-    <!-- Input for teacher_id start -->
     <%= f.collection_select :teacher_id, Teacher.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for teacher_id end -->
     <% if teacher_was_invalid %>
       <% review.errors.full_messages_for(:teacher).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for teacher_id end -->
-  <!-- Label and input for student_id start -->
   <div class="form-group">
     <% student_class = "form-control" %>
     <% student_was_invalid = review.errors.include?(:student) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :student_id %>
-    <!-- Input for student_id start -->
     <%= f.collection_select :student_id, Student.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for student_id end -->
     <% if student_was_invalid %>
       <% review.errors.full_messages_for(:student).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for student_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

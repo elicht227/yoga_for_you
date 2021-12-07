@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @event.attending_students.each do |student| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/students/<%= student.id %>">
           <%= student %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

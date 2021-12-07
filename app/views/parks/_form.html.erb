@@ -1,7 +1,6 @@
 <% was_validated = park.errors.any? %>
 
 <%= form_with(model: park, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for park_name start -->
   <div class="form-group">
     <% park_name_class = "form-control" %>
     <% park_name_was_invalid = park.errors.include?(:park_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :park_name %>
-    <!-- Input for park_name start -->
     <%= f.select :park_name, options_for_select(Park.park_names.keys), {}, class: "form-control" %>
-    <!-- Input for park_name end -->
     <% if park_name_was_invalid %>
       <% park.errors.full_messages_for(:park_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for park_name end -->
-  <!-- Label and input for park_address start -->
   <div class="form-group">
     <% park_address_class = "form-control" %>
     <% park_address_was_invalid = park.errors.include?(:park_address) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :park_address %>
-    <!-- Input for park_address start -->
     <%= f.text_field :park_address, class: park_address_class, placeholder: "Enter park address" %>
-    <!-- Input for park_address end -->
     <% if park_address_was_invalid %>
       <% park.errors.full_messages_for(:park_address).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for park_address end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
