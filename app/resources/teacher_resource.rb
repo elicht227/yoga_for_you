@@ -6,6 +6,8 @@ class TeacherResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :reviews
+
   has_many   :teaching_events,
              resource: EventResource
 
