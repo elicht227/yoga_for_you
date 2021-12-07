@@ -1,6 +1,10 @@
 class Teacher < ApplicationRecord
   # Direct associations
 
+  has_many   :teaching_events,
+             :class_name => "Event",
+             :dependent => :nullify
+
   belongs_to :user
 
   # Indirect associations
