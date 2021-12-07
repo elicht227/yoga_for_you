@@ -25,4 +25,7 @@ class EventResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :attending_students,
+               resource: StudentResource
+
 end
